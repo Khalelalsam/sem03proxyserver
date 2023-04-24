@@ -9,7 +9,7 @@ import (
 
 func main() {
 	var wg sync.WaitGroup
-	proxyServer, err := net.Listen("tcp", "172.17.0.2:8080")
+	proxyServer, err := net.Listen("tcp", "172.17.0.4:8080")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -27,8 +27,8 @@ func main() {
 				defer client.Close()
 
 				server, err := net.Dial("tcp", "172.17.0.3:8080")
-                if err != nil {
-					log.Println(err)
+                 if err != nil {
+ 					log.Println(err)
 					return
 				}
 				defer server.Close()
